@@ -7,11 +7,11 @@ import (
 
 func main() {
 	//devide()
-	//var a, b int32
-	a := 10000
-	//b := 2
-	//fmt.Println(divide(a, b))
-	fmt.Println(a>>1)
+	var a, b int32
+	a = 10
+	b = 2
+	fmt.Println("result :", divide(a, b))
+	//fmt.Println(5<<4)
 }
 
 //给定两个整数 a 和 b ，求它们的除法的商 a/b ，要求不得使用乘号 '*'、除号 '/' 以及求余符号 '%'。
@@ -32,10 +32,29 @@ func divide(a, b int32) int {
 		b = -b
 	}
 	count := 0
+
 	// 时间复杂度为O(n)
 	//for a >= b {
 	//	a -= b
 	//	count++
+	//}
+
+	// 时间复杂度为log(n)
+	//for a >= b {
+	//	value , k := b , 1
+	//	for a >= value + value {
+	//		value += value
+	//		k += k
+	//	}
+	//	a -= value
+	//	count += k
+	//}
+
+	//for i := 31; i >= 0; i-- {
+	//	if (a >> i) - b >= 0 {
+	//		a = a - (b << i)
+	//		count += 1 << i
+	//	}
 	//}
 
 	if sign == -1 {
