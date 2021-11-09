@@ -50,12 +50,13 @@ func divide(a, b int32) int {
 	//	count += k
 	//}
 
-	//for i := 31; i >= 0; i-- {
-	//	if (a >> i) - b >= 0 {
-	//		a = a - (b << i)
-	//		count += 1 << i
-	//	}
-	//}
+	//位运算 时间复杂度为 O(n)
+	for i := 31; i >= 0; i-- {
+		if b<<i > 0 && a-(b<<i) >= 0 {
+			a -= b << i
+			count += 1 << i
+		}
+	}
 
 	if sign == -1 {
 		count = -count
