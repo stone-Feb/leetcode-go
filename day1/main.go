@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"math"
 	"strconv"
-	"strings"
 )
 
 func main() {
@@ -14,11 +13,23 @@ func main() {
 //给定一个非负整数 n ，请计算 0 到 n 之间的每个数字的二进制表示中 1 的个数，并输出一个数组。
 func countBits(n int) []int {
 	count := make([]int , n+1)
-	item := ""
-	for i := 0; i <= n; i++ {
-		item = strconv.FormatInt(int64(i), 2)
-		count[i] = strings.Count(item,"1")
+	//Brian Kernighan 算法
+	for i := range count {
+		count[i] = func(x int) (cnt int) {
+			for ; x > 0 ; x &= x-1 {
+				cnt++
+			}
+			return
+		}(i)
 	}
+
+
+	//系统函数库方法
+	//item := ""
+	//for i := 0; i <= n; i++ {
+	//	item = strconv.FormatInt(int64(i), 2)
+	//	count[i] = strings.Count(item,"1")
+	//}
 	return count
 }
 
