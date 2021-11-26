@@ -63,20 +63,6 @@ func addBinary(a, b string) string {
 	return answer
 }
 
-//两数相加
-//给定一个整数数组 nums和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那两个整数，并返回它们的数组下标。
-//你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
-func twoSum(nums []int, target int) []int {
-	hashTable := map[int]int{}
-	for k, v := range nums {
-		if x, ok := hashTable[target-v]; ok {
-			return []int{x, k}
-		}
-		hashTable[v] = k
-	}
-	return nil
-}
-
 //整数除法
 //给定两个整数 a 和 b ，求它们的除法的商 a/b ，要求不得使用乘号 '*'、除号 '/' 以及求余符号 '%'。
 //假设我们的环境只能存储 32 位有符号整数
